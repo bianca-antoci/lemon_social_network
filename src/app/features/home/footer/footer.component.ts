@@ -33,6 +33,9 @@ export class FooterComponent implements OnInit {
       case 'profile':
         this.router.navigate(['/profile']);
         break;
+        case 'add':
+          this.router.navigate(['/new-post']);
+          break;
 
     }
   }

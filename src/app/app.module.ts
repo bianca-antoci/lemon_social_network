@@ -13,6 +13,11 @@ import { ProductsPageComponent } from './features/home/products-page/products-pa
 import { RecipesPageComponent } from './features/home/recipes-page/recipes-page.component';
 import { RegistrationPageComponent } from './features/welcome/registration-page/registration-page.component';
 import { LoginPageComponent } from './features/welcome/login-page/login-page.component';
+import { HeaderComponent } from './features/home/header/header.component';
+import { FooterComponent } from './features/home/footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,12 +30,20 @@ import { LoginPageComponent } from './features/welcome/login-page/login-page.com
     ProductsPageComponent,
     RecipesPageComponent,
     RegistrationPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+    // Material design imports
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

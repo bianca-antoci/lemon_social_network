@@ -1,0 +1,14 @@
+.scroll-layout {
+    overflow: scroll;
+    position: relative;
+}
+
+.initial-padding {
+    margin-top: 60px;
+}
+
+h1 {
+    padding: 12px;
+}
+
+

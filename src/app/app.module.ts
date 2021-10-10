@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { IndividualPostComponent } from './features/home/single-post/individual-post.component';
+import { PostListComponent } from './features/home/post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {MatCardModule} from '@angular/material/card';
     RegistrationPageComponent,
     LoginPageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    IndividualPostComponent,
+    PostListComponent,
   ],
   imports: [
     BrowserModule,

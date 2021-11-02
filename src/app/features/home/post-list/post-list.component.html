@@ -4,5 +4,16 @@
     <div>
         <h1>{{title}}</h1>
     </div>
-    <app-individual-post-component [model]="post" *ngFor="let post of posts"></app-individual-post-component>
+
+    <mat-spinner *ngIf="viewState.isLoading"></mat-spinner>
+    <div *ngIf="!viewState.isLoading">
+        <div *ngIf="feedPosts.length === 0">
+            No posts so far. Create your first one
+        </div>
+        <app-individual-post-component [post]="feedPost" *ngFor="let feedPost of feedPosts"></app-individual-post-component>
+        <br>
+        <br>
+        <br>
+    </div>
+
 </div>

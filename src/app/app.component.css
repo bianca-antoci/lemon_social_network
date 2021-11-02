@@ -2,3 +2,21 @@
     max-width: 500px;
     margin: auto;
 }
+
+/deep/mat-spinner {
+    margin: auto;
+    margin-top: 200px;
+}
+
+/deep/.feature {
+    margin-top: 70px;
+}
+
+/deep/ .mat-card {
+    background: #42424200;
+    color: #000;
+}
+
+/deep/ .mat-card-subtitle {
+    color: #000;
+}

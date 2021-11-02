@@ -7,6 +7,6 @@ import { Component, Input } from "@angular/core";
   })
   export class IndividualPostComponent {
     @Input()
-    model: any;
+    post: any;
   }
   

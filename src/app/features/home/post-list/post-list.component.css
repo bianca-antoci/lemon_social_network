@@ -1,5 +1,4 @@
 .scroll-layout {
-    overflow: scroll;
     position: relative;
 }
 
@@ -11,4 +10,6 @@ h1 {
     padding: 12px;
 }
 
-
+/deep/ .carousel-cell img {
+    width: 98% !important;
+}

@@ -3,6 +3,7 @@ footer {
     bottom: 0px;
     width: 100%;
     max-width: 500px;
+    z-index: 100;
 }
 
 mat-toolbar {

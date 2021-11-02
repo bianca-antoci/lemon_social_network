@@ -1,3 +1,45 @@
-<div>
-   New post
+<div class="feature">
+   <div>
+      <h1>Create new post</h1>
+   </div>
+   <div class="image-container">
+      <carousel [arrowsTheme]="'dark'" [cellsToShow]="3" [overflowCellsLimit]="1" [objectFit]="'cover'" [cellWidth]="'100%'" [arrowsOutside]="false"
+         [arrows]="false" [autoplay]="false" [dots]="false" [loop]="true">
+         <div class="carousel-cell add-picture-center">
+            <div class="add-picture">
+               <div>+</div>
+               <div>Add photo</div>
+               <input accept="image/*" class="input-file" type='file' (change)="onFilePick($event);" />
+            </div>
+         </div>
+         <div class="carousel-cell" *ngFor="let image of images">
+            <img
+               [src]="image">
+         </div>
+      </carousel>
+   </div>
+   <br>
+   <div class="post-body-field field-container">
+      <mat-form-field appearance="fill" [(ngModel)]="postBody" ngDefaultControl>
+         <mat-label>Write here something nice...</mat-label>
+         <textarea matInput placeholder=""></textarea>
+      </mat-form-field>
+   </div>
+   <br>
+   <div class="post-body-field field-container">
+      <mat-form-field appearance="fill" [(ngModel)]="selectedPostType" ngDefaultControl>
+         <mat-label>Select a post type</mat-label>
+         <select matNativeControl required>
+            <option value="recipe">Recipes</option>
+            <option value="diet">Diets</option>
+            <option value="product">Products</option>
+         </select>
+      </mat-form-field>
+   </div>
+   <br>
+   <br>
+   <div class="button-container">
+      <button (click)="onPostBtn()" mat-raised-button color="primary">CREATE POST</button>
+   </div>
+
 </div>

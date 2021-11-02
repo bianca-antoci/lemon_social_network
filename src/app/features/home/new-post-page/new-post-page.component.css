@@ -1,0 +1,66 @@
+.add-picture-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px #dfdfdf;
+    cursor: pointer;
+    text-align: center;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.post-body-field mat-label {
+    color: black;
+}
+
+.post-body-field .mat-input-element {
+    color: black;
+}
+
+.post-body-field .mat-input-element::placeholder {
+    color: black;
+}
+
+.field-container {
+    padding: 10px;
+    box-shadow: 0 0 10px #dfdfdf;
+}
+
+/deep/ .mat-select-arrow {
+    color: black;
+}
+
+button {
+    width: 80%;
+    margin: auto;
+}
+
+.button-container {
+    display: flex;
+}
+
+h1 {
+    padding: 10px 0 0 5px;
+}
+
+/deep/.carousel-container {
+    padding: 5px;
+}
+
+/deep/img {
+    object-fit: cover !important;
+}
+/deep/.carousel-dot-active {
+    background-color: black !important;
+}
+.input-file {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}

@@ -16,11 +16,18 @@ import { LoginPageComponent } from './features/welcome/login-page/login-page.com
 import { HeaderComponent } from './features/home/header/header.component';
 import { FooterComponent } from './features/home/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { IndividualPostComponent } from './features/home/single-post/individual-post.component';
 import { PostListComponent } from './features/home/post-list/post-list.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { RouterModule } from '@angular/router';
+
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,12 +50,19 @@ import { PostListComponent } from './features/home/post-list/post-list.component
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    RouterModule,
 
     // Material design imports
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatProgressSpinnerModule,
+    MatInputModule,
+    FormsModule,
+
+    // Carousel lib, used to flip between content
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

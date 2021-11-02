@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsPageComponent },
   { path: 'profile', component: ProfilePageComponent },
   { path: 'notifications', component: NotificationsPageComponent },
-  { path: 'new-post', component: NewPostPageComponent },
+  { path: 'create', component: NewPostPageComponent },
 
   /**
    * The external routing.

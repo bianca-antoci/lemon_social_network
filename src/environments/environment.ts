@@ -4,6 +4,15 @@
 
 export const environment = {
   production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyBT6_LPzCVf-Ga-FoIDabd45hyAXz8n5RA",
+    authDomain: "lemon-social-network.firebaseapp.com",
+    projectId: "lemon-social-network",
+    storageBucket: "lemon-social-network.appspot.com",
+    messagingSenderId: "868068421829",
+    appId: "1:868068421829:web:08e4d2efb357e9ea9140ac",
+    measurementId: "G-PR2HB9T5CH"
+  },
 };
 
 /*
@@ -13,4 +22,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

@@ -28,7 +28,7 @@ mat-form-field {
     box-shadow: 0 0 10px #dfdfdf;
 }
 
-/deep/ .mat-select-arrow {
+::ng-deep .mat-select-arrow {
     color: black;
 }
 

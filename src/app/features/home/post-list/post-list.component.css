@@ -10,6 +10,6 @@ h1 {
     padding: 12px;
 }
 
-/deep/ .carousel-cell img {
+::ng-deep .carousel-cell img {
     width: 98% !important;
 }

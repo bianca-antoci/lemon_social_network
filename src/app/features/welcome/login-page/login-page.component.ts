@@ -1,4 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
+import { FirebaseuiAngularLibraryService } from "firebaseui-angular";
+import { getAuth, signOut } from "firebase/auth";
+import * as firebaseui from "firebaseui";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-login-page-component',
@@ -6,5 +11,17 @@ import { Component } from "@angular/core";
     styleUrls: ['./login-page.component.css']
   })
   export class LoginPageComponent {
+
+    constructor(private angularFireAuth: AngularFireAuth, private router: Router) {
+      const auth = getAuth();
+      signOut(auth);
+      this.angularFireAuth.authState.subscribe(this.firebaseAuthChangeListener);
   }
+
+  private firebaseAuthChangeListener(response) {
+    if (response && this.router) {
+      this.router.navigate(['/home']);
+    }
+  }
+}
   

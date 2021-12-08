@@ -82,7 +82,5 @@ export class NewPostPageComponent {
 
       reader.readAsDataURL(event.target.files[0]);
     }
-
-    console.log(this.images);
   }
 }

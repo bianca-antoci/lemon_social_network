@@ -12,11 +12,11 @@
     margin-top: 70px;
 }
 
-/deep/ .mat-card {
+::ng-deep .mat-card {
     background: #42424200;
     color: #000;
 }
 
-/deep/ .mat-card-subtitle {
+::ng-deep .mat-card-subtitle {
     color: #000;
 }

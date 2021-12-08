@@ -28,6 +28,32 @@ import { RouterModule } from '@angular/router';
 
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import * as firebaseui from 'firebaseui';
+import { firebase, FirebaseUIModule } from 'firebaseui-angular';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment';
+
+const firebaseUiAuthConfig: firebaseui.auth.Config = {
+  signInFlow: 'popup',
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    {
+      scopes: [
+        'public_profile',
+        'email',
+      ],
+      customParameters: {
+        'auth_type': 'reauthenticate'
+      },
+      provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    },
+  ],
+  tosUrl: '<your-tos-link>',
+  privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
+  credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO
+};
+
 
 @NgModule({
   declarations: [
@@ -62,7 +88,12 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
 
     // Carousel lib, used to flip between content
-    IvyCarouselModule
+    IvyCarouselModule,
+
+    // Firebase signin 
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

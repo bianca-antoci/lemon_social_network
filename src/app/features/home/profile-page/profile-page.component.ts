@@ -6,5 +6,9 @@ import { Component } from "@angular/core";
     styleUrls: ['./profile-page.component.css']
   })
   export class ProfilePageComponent {
+    user = {
+      name: 'Antoci Bianca',
+      about: 'Hi! I\'m Bianca',
+    }
   }
   

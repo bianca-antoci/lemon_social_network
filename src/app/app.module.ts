@@ -33,6 +33,7 @@ import { firebase, FirebaseUIModule } from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
+import {MatListModule} from '@angular/material/list';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -86,6 +87,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     MatProgressSpinnerModule,
     MatInputModule,
     FormsModule,
+    MatListModule,
 
     // Carousel lib, used to flip between content
     IvyCarouselModule,

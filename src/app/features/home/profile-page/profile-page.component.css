@@ -1,6 +1,30 @@
 .container {
-    margin-top: 70px;
     text-align: center;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.body-field mat-label {
+    color: black;
+}
+
+.body-field .mat-input-element {
+    color: black;
+}
+
+.body-field .mat-input-element::placeholder {
+    color: black;
+}
+
+.field-container {
+    padding: 10px;
+    box-shadow: 0 0 10px #dfdfdf;
+}
+
+::ng-deep .mat-select-arrow {
+    color: black;
 }
 
 img {

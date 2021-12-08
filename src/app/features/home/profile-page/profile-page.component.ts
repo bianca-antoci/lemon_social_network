@@ -9,6 +9,7 @@ import { Component } from "@angular/core";
     user = {
       name: 'Antoci Bianca',
       about: 'Hi! I\'m Bianca',
+      favoriteProducts: '',
     }
   }
   

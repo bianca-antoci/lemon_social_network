@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { initializeApp } from "firebase/app";
 import { environment } from 'src/environments/environment';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({

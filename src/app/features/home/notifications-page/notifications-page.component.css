@@ -1,0 +1,13 @@
+::ng-deep .mat-list-base .mat-list-item {
+    color: black;
+}
+
+::ng-deep .mat-list-base .mat-subheader {
+    color: black; 
+}
+
+img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}

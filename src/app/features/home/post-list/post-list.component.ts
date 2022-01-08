@@ -40,9 +40,9 @@ export class PostListComponent implements OnInit {
   ngOnInit(): void {
     // we need to load the posts by type
     const db = getDatabase();
-    const starCountRef = ref(db, 'posts');
+    const dbRef = ref(db, 'posts');
 
-    onValue(starCountRef, (snapshot: DataSnapshot) => {
+    onValue(dbRef, (snapshot: DataSnapshot) => {
       this.feedPosts = [];
       snapshot.forEach(element => {
         const post = element.val()

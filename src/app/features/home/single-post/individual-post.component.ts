@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { getDatabase, ref, update } from "firebase/database";
+import { getDatabase, ref, set, update } from "firebase/database";
 
 @Component({
   selector: 'app-individual-post-component',
@@ -37,6 +37,14 @@ export class IndividualPostComponent implements OnInit {
     } else {
       count++;
       likedBy.push(this.currentUser.id);
+      if (this.post.createdBy !== this.currentUser.id) {
+        set(ref(getDatabase(), 'notifications/' + new Date().getTime()), {
+          user: this.post.createdBy,
+          created: new Date().getTime(),
+          avatar: this.currentUser.avatar,
+          message: this.currentUser.name + ' likes your post',
+        });
+      }
     }
 
     update(ref(getDatabase(), 'posts/' + this.post.id), {

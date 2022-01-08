@@ -51,13 +51,15 @@ export class AppComponent {
         set(ref(getDatabase(), 'users/' + user.uid), {
           name: user.displayName,
           email: user.email,
-          created: new Date(),
-          avatar: user.photoURL
+          created: new Date().getTime(),
+          avatar: user.photoURL,
+          about: 'No about written',
         }).then((_) => {
           localStorage.setItem('_user', JSON.stringify({
             id: user.uid,
             name: user.email,
             avatar: user.photoURL,
+            about: 'No about written',
           }));
           this.router.navigate(['/home']);
         })
@@ -66,7 +68,9 @@ export class AppComponent {
         localStorage.setItem('_user', JSON.stringify({
           id: user.uid,
           name: userVal.name,
+          email: userVal.email,
           avatar: userVal.avatar,
+          about: userVal.about,
         }));
         this.router.navigate(['/home']);
       }

@@ -76,6 +76,7 @@ export class NewPostPageComponent {
       approved: false,
       likeCount: 0,
       likedBy: [],
+      createdBy: user.id,
     });
 
     this.router.navigate(['/home']);
@@ -103,6 +104,6 @@ export class NewPostPageComponent {
       cacheControl: 'public,max-age=4000',
     }
     await uploadBytes(storageRef, file, newMetadata)
-    return id
+    return id;
   }
 }

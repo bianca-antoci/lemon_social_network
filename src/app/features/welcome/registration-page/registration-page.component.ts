@@ -61,7 +61,7 @@ export class RegistrationPageComponent implements OnInit {
         set(ref(this.fireDB, 'users/' + user.uid), {
           name: this.name.value,
           email: this.email.value,
-          created: new Date(),
+          created: new Date().getTime(),
           avatar: 'https://firebasestorage.googleapis.com/v0/b/lemon-social-network.appspot.com/o/default-avatar.png?alt=media'
         });
 

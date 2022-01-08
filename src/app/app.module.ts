@@ -37,6 +37,10 @@ import { environment } from 'src/environments/environment';
 import {MatListModule} from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SignInEmailComponent } from './features/welcome/sign-in-with-email/signin-email-page.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { EditNameComponent } from './features/home/profile-page/edit-name/edit-name.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -76,6 +80,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     IndividualPostComponent,
     PostListComponent,
     SignInEmailComponent,
+    EditNameComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +101,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     MatListModule,
     FormsModule,
     ReactiveFormsModule,
+    MatGridListModule,
+    MatDialogModule,
 
     // Carousel lib, used to flip between content
     IvyCarouselModule,

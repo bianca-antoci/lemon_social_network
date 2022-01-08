@@ -1,11 +1,16 @@
 <div class="feature">
     <h1>Latest notifications</h1>
+    <div *ngIf="notifications.length === 0">
+        <br>
+        <div>
+            No notifications received so far
+        </div>
+    </div>
     <mat-list>
         <mat-list-item *ngFor="let notification of notifications">
-            <div mat-line>{{notification.body}}</div>
+            <div mat-line>{{notification.message}}</div>
             <span>
-                <img src="{{notification.image}}"></span>
-         
+                <img src="{{notification.avatar}}"></span>
         </mat-list-item>
       </mat-list>
 </div>

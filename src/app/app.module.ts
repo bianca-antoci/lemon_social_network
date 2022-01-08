@@ -25,15 +25,17 @@ import { IndividualPostComponent } from './features/home/single-post/individual-
 import { PostListComponent } from './features/home/post-list/post-list.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { RouterModule } from '@angular/router';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import * as firebaseui from 'firebaseui';
 import { firebase, FirebaseUIModule } from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
 import {MatListModule} from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -86,8 +88,12 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     MatCardModule,
     MatProgressSpinnerModule,
     MatInputModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
     FormsModule,
     MatListModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     // Carousel lib, used to flip between content
     IvyCarouselModule,

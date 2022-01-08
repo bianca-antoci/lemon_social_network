@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { DataSnapshot, getDatabase, onValue, ref } from "firebase/database";
 
 @Component({
   selector: 'app-home-post-list-component',
@@ -31,15 +32,32 @@ export class PostListComponent implements OnInit {
     isLoading: true,
   }
 
+  /**
+   * The current user
+   */
+  currentUser = JSON.parse(localStorage.getItem('_user'));
+
   ngOnInit(): void {
     // we need to load the posts by type
-    // local storage for now
-    const postsFromStorage = localStorage.getItem('posts');
-    if (postsFromStorage) {
-      this.feedPosts = JSON.parse(postsFromStorage).filter(item => this.type === 'home' || item.type === this.type);
-    }
+    const db = getDatabase();
+    const starCountRef = ref(db, 'posts');
 
-    // set the state to not loading
-    this.viewState.isLoading = false;
+    onValue(starCountRef, (snapshot: DataSnapshot) => {
+      this.feedPosts = [];
+      snapshot.forEach(element => {
+        const post = element.val()
+        post.id = element.key;
+        if (post.approved) {
+          this.feedPosts.push(post);
+        }
+      });
+      this.feedPosts = this.feedPosts.sort((a, b) => b.id - a.id);
+      this.feedPosts = this.feedPosts.filter(item => this.type === 'home' || item.type === this.type);
+
+      // set the state to not loading
+      this.viewState.isLoading = false;
+    });
+
+
   }
 }

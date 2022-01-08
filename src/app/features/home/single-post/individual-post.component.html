@@ -1,19 +1,23 @@
 <mat-card>
     <mat-card-header>
-        <div mat-card-avatar class="header-image" [style.background-image]="'url(' + post.profilePicture + ')'" ></div>
+        <div mat-card-avatar class="header-image" [style.background-image]="'url(' + post.profilePicture + ')'"></div>
         <mat-card-title>{{post.userName}}</mat-card-title>
         <mat-card-subtitle>{{post.type}}</mat-card-subtitle>
     </mat-card-header>
 
-    <div *ngIf="post.images.length > 0">
-    <carousel  [arrows]="false" [overflowCellsLimit]="1" [objectFit]="'cover'" [cellWidth]="'100%'" [arrowsOutside]="'false'"
-        [autoplay]="'true'" [dots]="'false'" [loop]="'true'">
-        <div class="carousel-cell" *ngFor="let image of post.images">
-            <img [src]="image">
-        </div>
-    </carousel>
-</div>
+    <div *ngIf="post.images && post.images.length > 0">
+        <carousel [arrows]="false" [overflowCellsLimit]="1" [objectFit]="'cover'" [cellWidth]="'100%'"
+            [arrowsOutside]="'false'" [autoplay]="'true'" [dots]="'false'" [loop]="'true'">
+            <div class="carousel-cell" *ngFor="let image of post.images">
+                <img [src]="image">
+            </div>
+        </carousel>
+    </div>
     <div class="text">
-       {{post.body}}
+        {{post.body}}
+    </div>
+    <div class="like" (click)="onClickBtn()" mat-button>
+        {{post.likeCount}} <mat-icon class="liked" *ngIf="post.isLikedByMe">favorite</mat-icon>
+        <mat-icon *ngIf="!post.isLikedByMe">favorite_border</mat-icon>
     </div>
 </mat-card>

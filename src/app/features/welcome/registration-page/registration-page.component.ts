@@ -67,7 +67,6 @@ export class RegistrationPageComponent implements OnInit {
 
       })
       .catch((error) => {
-        debugger;
         const errorCode = error.code;
         const errorMessage = error.message;
         if (errorMessage === 'EMAIL_EXISTS') {

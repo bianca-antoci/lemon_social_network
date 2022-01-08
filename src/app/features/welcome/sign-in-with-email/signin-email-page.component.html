@@ -11,48 +11,55 @@
 <div>
     <div class="login-container">
         <form [formGroup]="userForm" #formDir="ngForm">
-                <div class="form-group input-field">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Enter your email</mat-label>
-                        <input id="email" matInput placeholder="E.g. me@email.com" formControlName="email" email="true" required>
-                        <mat-error *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                            <div *ngIf="email.errors?.['required']">
-                                Email is required.
-                            </div>
-                            <div *ngIf="email.errors?.['email']">
-                                Email is invalid.
-                            </div>
-                            <div *ngIf="email.errors?.['minlength']">
-                                Name must be at least 2 characters long
-                            </div>
-                        </mat-error>
-                    </mat-form-field>
+            <div class="form-group input-field">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your email</mat-label>
+                    <input id="email" matInput placeholder="E.g. me@email.com" formControlName="email" email="true"
+                        required>
+                    <mat-error *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors?.['required']">
+                            Email is required.
+                        </div>
+                        <div *ngIf="email.errors?.['email']">
+                            Email is invalid.
+                        </div>
+                        <div *ngIf="email.errors?.['minlength']">
+                            Name must be at least 2 characters long
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group input-field">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your password</mat-label>
+                    <input id="password" type="password" matInput placeholder="Use a strong password"
+                        formControlName="password" required>
+                    <mat-error *ngIf="password.invalid && (password.dirty || password.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="password.errors?.['required']">
+                            Password is required.
+                        </div>
+                        <div *ngIf="password.errors?.['minlength']">
+                            Name must be at least 8 characters long
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="center">
+                <div *ngIf="loginError.length > 0">
+                    {{loginError}}
                 </div>
-                <div class="form-group input-field">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Enter your password</mat-label>
-                        <input id="password" type="password" matInput placeholder="Use a strong password" formControlName="password"
-                            required>
-                        <mat-error *ngIf="password.invalid && (password.dirty || password.touched)"
-                            class="alert alert-danger">
-                            <div *ngIf="password.errors?.['required']">
-                                Password is required.
-                            </div>
-                            <div *ngIf="password.errors?.['minlength']">
-                                Name must be at least 8 characters long
-                            </div>
-                        </mat-error>
-                    </mat-form-field>
+                <div>
+                    <button (click)="onLoginBtn()" type="submit" mat-raised-button
+                        [disabled]="userForm.invalid || isLoading" color="primary">SIGN IN</button>
                 </div>
                 <br>
-                <div class="center">
-                    <div *ngIf="registerError.length > 0">
-                        {{registerError}}
-                    </div>
-                    <button (click)="onLoginBtn()" type="submit" mat-raised-button [disabled]="userForm.invalid || isLoading"
-                        color="primary">SIGN IN</button>
+                <div>
+                    New to Lemon? <a [routerLink]="'/welcome/register'">Create new account</a>
                 </div>
-                <br>
+            </div>
+            <br>
         </form>
     </div>
 

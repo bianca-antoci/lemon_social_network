@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { getDatabase } from "firebase/database";
+import { get, getDatabase, ref } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 @Component({
@@ -13,7 +13,7 @@ export class SignInEmailComponent implements OnInit {
   newUser = { name: '', email: '', password: '', isAcceptedTerms: false, };
   isLoading = false;
   fireDB = getDatabase();
-  registerError = '';
+  loginError = '';
 
   ngOnInit(): void {
 
@@ -42,7 +42,7 @@ export class SignInEmailComponent implements OnInit {
 
     // make the Firebase call to sign in
     this.isLoading = true;
-    this.registerError = '';
+    this.loginError = '';
 
     const auth = getAuth();
     signInWithEmailAndPassword(auth, this.email.value, this.password.value)

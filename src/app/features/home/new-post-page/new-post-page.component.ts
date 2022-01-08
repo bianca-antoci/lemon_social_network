@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { getDatabase, ref, set } from "firebase/database";
+import { getStorage, uploadBytes } from "firebase/storage";
+import { ref as StorageRef } from "firebase/storage";
 
 @Component({
   selector: 'app-new-post-page-component',
@@ -21,6 +24,7 @@ export class NewPostPageComponent {
    * Default post images
    */
   images = [];
+  imageURLs = [];
 
   /**
    * View state variable object
@@ -28,6 +32,12 @@ export class NewPostPageComponent {
   viewState = {
     isLoading: false,
   };
+
+  /**
+   * Reference to the Firebase
+   */
+  fireDB = getDatabase();
+  storage = getStorage();
 
   /**
    * Injecting dependencies
@@ -43,7 +53,7 @@ export class NewPostPageComponent {
    * 
    * @returns
    */
-  onPostBtn() {
+  async onPostBtn() {
     if (this.postBody.length === 0) {
       // TODO display error
       return;
@@ -51,24 +61,23 @@ export class NewPostPageComponent {
 
     this.viewState.isLoading = true;
 
-    const storageKey = 'posts';
-
-    const postsFromStorage = localStorage.getItem(storageKey);
-
-    let posts = [];
-
-    if (postsFromStorage) {
-      posts = JSON.parse(postsFromStorage);
+    let storageString = localStorage.getItem('_user')
+    let user: any;
+    if (storageString) {
+      user = JSON.parse(storageString);
     }
-    posts.unshift({
-      id: posts.length + 1,
+
+    set(ref(this.fireDB, 'posts/' + new Date().getTime()), {
       body: this.postBody,
       type: this.selectedPostType,
-      images: this.images,
-      userName: 'Bianca Antoci',
-      profilePicture: 'https://storage.googleapis.com/yutu_api_content/spJXAu1qZ8qGo8LWb3Hib9Q04VA6XtQZZYUorJeJeVMhd2sVEKQNztcFWT1xpzgVRc0i9kKaiSLbN1Z3YKswDL7HsViKbwB1L3sxthaGTmbcq8CgDgYGWlobNbi9voFk.jpeg',
+      images: this.imageURLs,
+      userName: user.name,
+      profilePicture: user.avatar,
+      approved: false,
+      likeCount: 0,
+      likedBy: [],
     });
-    localStorage.setItem(storageKey, JSON.stringify(posts));
+
     this.router.navigate(['/home']);
   }
 
@@ -79,8 +88,21 @@ export class NewPostPageComponent {
       reader.onload = (event: any) => {
         this.images.unshift(event.target.result);
       }
-
       reader.readAsDataURL(event.target.files[0]);
+      this.uploadFile(event.target.files[0]).then(id => {
+        const url = `https://firebasestorage.googleapis.com/v0/b/lemon-social-network.appspot.com/o/${id}?alt=media`;
+        this.imageURLs.push(url);
+      });
     }
+  }
+
+  async uploadFile(file: any) {
+    const id = 'post_' + new Date().getTime();
+    const storageRef = StorageRef(this.storage, id);
+    var newMetadata = {
+      cacheControl: 'public,max-age=4000',
+    }
+    await uploadBytes(storageRef, file, newMetadata)
+    return id
   }
 }

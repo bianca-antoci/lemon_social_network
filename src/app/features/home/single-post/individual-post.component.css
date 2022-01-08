@@ -22,3 +22,16 @@ img {
 mat-card-header {
     padding: 15px 0 0 15px;
 }
+
+.like {
+    display: flex;
+    padding: 15px;
+    font-weight: bold;
+}
+mat-icon{
+    margin-left: 5px;
+}
+
+.liked {
+    color: red;
+}

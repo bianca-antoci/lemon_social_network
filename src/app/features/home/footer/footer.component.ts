@@ -7,10 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  user: any;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+
+    // fetch the logged in user
+    const user = localStorage.getItem('_user')
+    if (user) {
+      this.user = JSON.parse(user);
+    }
   }
 
   /**
@@ -33,9 +40,9 @@ export class FooterComponent implements OnInit {
       case 'profile':
         this.router.navigate(['/profile']);
         break;
-        case 'add':
-          this.router.navigate(['/new-post']);
-          break;
+      case 'add':
+        this.router.navigate(['/new-post']);
+        break;
 
     }
   }

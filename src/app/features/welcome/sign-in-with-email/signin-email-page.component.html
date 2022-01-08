@@ -5,27 +5,12 @@
                 <mat-icon>arrow_back</mat-icon>
             </button>
         </span>
-        <span class="title">Register to Lemon</span>
+        <span class="title">Sign in with email</span>
     </mat-toolbar>
 </p>
 <div>
-    <div class="container">
+    <div class="login-container">
         <form [formGroup]="userForm" #formDir="ngForm">
-            <div class="field-container">
-                <div class="form-group input-field">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Enter your name</mat-label>
-                        <input id="name" matInput placeholder="E.g. John Smith" formControlName="name" required>
-                        <mat-error *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-                            <div *ngIf="name.errors?.['required']">
-                                Name is required.
-                            </div>
-                            <div *ngIf="name.errors?.['minlength']">
-                                Name must be at least 2 characters long
-                            </div>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
                 <div class="form-group input-field">
                     <mat-form-field appearance="fill">
                         <mat-label>Enter your email</mat-label>
@@ -60,28 +45,14 @@
                     </mat-form-field>
                 </div>
                 <br>
-                <div class="form-group input-field">
-                    <mat-checkbox id="termsAndPrivacy" formControlName="termsAndPrivacy" required>By registering you
-                        agree with the <a href="https://google.com">Terms and Conditions</a> and <a
-                            href="https://google.com">Privacy Policy</a>.</mat-checkbox>
-                    <mat-error *ngIf="termsAndPrivacy.invalid && (termsAndPrivacy.dirty || termsAndPrivacy.touched)"
-                        class="alert alert-danger">
-                        <div *ngIf="termsAndPrivacy.errors?.['required']">
-                            To register you must accept the terms
-                        </div>
-                    </mat-error>
-                </div>
-                <br>
-                <br>
                 <div class="center">
                     <div *ngIf="registerError.length > 0">
                         {{registerError}}
                     </div>
-                    <button (click)="onRegisterBtn()" type="submit" mat-raised-button [disabled]="userForm.invalid || isLoading"
-                        color="primary">CREATE MY ACCOUNT</button>
+                    <button (click)="onLoginBtn()" type="submit" mat-raised-button [disabled]="userForm.invalid || isLoading"
+                        color="primary">SIGN IN</button>
                 </div>
                 <br>
-            </div>
         </form>
     </div>
 

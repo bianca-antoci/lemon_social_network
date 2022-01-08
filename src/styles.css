@@ -1,4 +1,4 @@
-/* @import '~firebaseui/dist/firebaseui.css'; */
+@import '~firebaseui/dist/firebaseui.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html, body { height: 100%}

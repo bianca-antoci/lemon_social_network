@@ -7,6 +7,7 @@ export const environment = {
   firebaseConfig: {
     apiKey: "AIzaSyBT6_LPzCVf-Ga-FoIDabd45hyAXz8n5RA",
     authDomain: "lemon-social-network.firebaseapp.com",
+    databaseURL: "https://lemon-social-network-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "lemon-social-network",
     storageBucket: "lemon-social-network.appspot.com",
     messagingSenderId: "868068421829",

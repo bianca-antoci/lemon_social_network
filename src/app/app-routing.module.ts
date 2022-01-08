@@ -9,6 +9,7 @@ import { ProfilePageComponent } from './features/home/profile-page/profile-page.
 import { RecipesPageComponent } from './features/home/recipes-page/recipes-page.component';
 import { LoginPageComponent } from './features/welcome/login-page/login-page.component';
 import { RegistrationPageComponent } from './features/welcome/registration-page/registration-page.component';
+import { SignInEmailComponent } from './features/welcome/sign-in-with-email/signin-email-page.component';
 
 const routes: Routes = [
   /**
@@ -29,6 +30,7 @@ const routes: Routes = [
    */
   { path: 'welcome', component: LoginPageComponent},
   { path: 'welcome/register', component: RegistrationPageComponent },
+  { path: 'welcome/email', component: SignInEmailComponent },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'welcome', pathMatch: 'full' },

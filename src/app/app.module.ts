@@ -36,6 +36,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
 import {MatListModule} from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SignInEmailComponent } from './features/welcome/sign-in-with-email/signin-email-page.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -74,6 +75,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     FooterComponent,
     IndividualPostComponent,
     PostListComponent,
+    SignInEmailComponent,
   ],
   imports: [
     BrowserModule,

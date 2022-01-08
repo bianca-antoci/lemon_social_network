@@ -5,3 +5,11 @@
 .logo {
     max-width: 50%;
 }
+.full-width {
+    width: 44%;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}

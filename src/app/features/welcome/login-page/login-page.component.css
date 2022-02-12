@@ -5,10 +5,10 @@
 .logo {
     max-width: 50%;
 }
-.full-width {
+/* .full-width {
     width: 44%;
     margin: auto;
-}
+} */
 
 .vertical-align {
     display: flex;

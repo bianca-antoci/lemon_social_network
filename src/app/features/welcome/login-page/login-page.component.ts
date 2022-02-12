@@ -15,13 +15,6 @@ import { Router } from "@angular/router";
     constructor(private angularFireAuth: AngularFireAuth, private router: Router) {
       const auth = getAuth();
       signOut(auth);
-      // this.angularFireAuth.authState.subscribe(this.firebaseAuthChangeListener);
   }
-
-  // private firebaseAuthChangeListener(response: User) {
-  //   if (response && this.router) {
-  //     this.router.navigate(['/home']);
-  //   }
-  // }
 }
   

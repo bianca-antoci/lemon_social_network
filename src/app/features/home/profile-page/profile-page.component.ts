@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
+import { getAuth, signOut } from "firebase/auth";
 import { DataSnapshot, getDatabase, onValue, ref, update } from "firebase/database";
 import { getStorage, uploadBytes } from "firebase/storage";
 import { ref as StorageRef } from "firebase/storage";
@@ -77,6 +78,11 @@ export class ProfilePageComponent implements OnInit {
         this.onFieldBlur();
       }
     });
+  }
+
+  onLogout() {
+    const auth = getAuth();
+    signOut(auth);
   }
   
   private updateUserLocally() {

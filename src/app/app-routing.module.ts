@@ -28,7 +28,7 @@ const routes: Routes = [
    * The external routing.
    * It doesn't require a session.
    */
-  { path: 'welcome', component: LoginPageComponent},
+  { path: 'welcome', component: LoginPageComponent },
   { path: 'welcome/register', component: RegistrationPageComponent },
   { path: 'welcome/email', component: SignInEmailComponent },
 
@@ -37,7 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy', scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -27,30 +27,28 @@
          <h3><strong>My posts</strong></h3>
       </div>
       <div>
-         <mat-grid-list cols="2" rowHeight="2:3">
-            <mat-grid-tile *ngFor="let post of myPosts">
-               <mat-card>
-                  <mat-card-header>
-                     <div mat-card-avatar class="header-image"
-                        [style.background-image]="'url(' + post.profilePicture + ')'"></div>
-                     <mat-card-title>{{post.userName}}</mat-card-title>
-                     <mat-card-subtitle>{{post.type}}</mat-card-subtitle>
-                  </mat-card-header>
-                  <div *ngIf="post.images && post.images.length > 0">
-                     <img class="carouse-img" [src]="post.images[0]">
-                  </div>
-                  <div *ngIf="!post.images" class="carouse-img">
-                  </div>
-                  <div class="text">
-                     {{post.body}}
-                  </div>
-                  <div class="like" mat-button>
-                     {{post.likeCount}} <mat-icon class="liked" *ngIf="post.likeCount>0">favorite</mat-icon>
-                     <mat-icon *ngIf="post.likeCount === 0">favorite_border</mat-icon>
-                  </div>
-               </mat-card>
-            </mat-grid-tile>
-         </mat-grid-list>
+         <div *ngFor="let post of myPosts">
+            <mat-card>
+               <mat-card-header>
+                  <div mat-card-avatar class="header-image"
+                     [style.background-image]="'url(' + post.profilePicture + ')'"></div>
+                  <mat-card-title>{{post.userName}}</mat-card-title>
+                  <mat-card-subtitle>{{post.type}}</mat-card-subtitle>
+               </mat-card-header>
+               <div *ngIf="post.images && post.images.length > 0">
+                  <img class="carouse-img" [src]="post.images[0]">
+               </div>
+               <div *ngIf="!post.images" class="carouse-img">
+               </div>
+               <div class="text">
+                  {{post.body}}
+               </div>
+               <div class="like" mat-button>
+                  {{post.likeCount}} <mat-icon class="liked" *ngIf="post.likeCount>0">favorite</mat-icon>
+                  <mat-icon *ngIf="post.likeCount === 0">favorite_border</mat-icon>
+               </div>
+            </mat-card>
+         </div>
       </div>
       <br>
       <div class="my-posts">

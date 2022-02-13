@@ -11,5 +11,5 @@ h1 {
 }
 
 ::ng-deep .carousel-cell img {
-    width: 98% !important;
+    /* width: 98% !important; */
 }
